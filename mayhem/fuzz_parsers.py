@@ -21,7 +21,7 @@ def TestOneInput(data):
     except xbrl.XBRLParserException:
         return -1
     except (IndexError, AttributeError) as e:
-        if random.random() > 0.99:
+        if random.random() > 0.90:
             raise e
         return 0
 
