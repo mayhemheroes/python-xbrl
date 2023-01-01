@@ -1,0 +1,7 @@
+project: python-xbrl
+target: fuzz-parsers
+
+cmds:
+  - cmd: /src/mayhem/fuzz_parsers.py
+    libfuzzer: true
+    timeout: 12
