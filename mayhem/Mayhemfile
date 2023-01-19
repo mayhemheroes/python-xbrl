@@ -1,0 +1,6 @@
+project: python-xbrl
+target: xbrl_parse_fuzz
+
+cmds:
+    - cmd: /python-xbrl/fuzz/xbrl_parse_fuzz.py
+      libfuzzer: true
