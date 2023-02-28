@@ -1,9 +1,8 @@
-FROM python:3.8-bullseye
-RUN pip3 install atheris
+# Build Stage
+FROM fuzzers/atheris:2.0.7-python3.9
 
-COPY . /python-xbrl
-WORKDIR /python-xbrl
-RUN python3 -m pip install . && chmod +x fuzz/xbrl_parse_fuzz.py
+ADD . /src
+WORKDIR /src
+RUN python3 -m pip install .
 
-ENTRYPOINT [ ]
-CMD ["/python-xbrl/fuzz/xbrl_parse_fuzz.py"]
+CMD ["/src/mayhem/fuzz_parsers.py"]
