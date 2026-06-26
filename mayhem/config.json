@@ -1,0 +1,8 @@
+{
+  "spec_version": 2,
+  "upstream_default_branch": "master",
+  "lang": "python",
+  "fuzz_engine": "atheris",
+  "oss_fuzz": false,
+  "notes": "Pure-Python Atheris harness. The Mayhem target is a thin ELF launcher (mayhem/launcher.c) that execs python3 on the harness, because Mayhem requires an ELF target. One target: fuzz-parsers (the original mayhemheroes harness mayhem/fuzz_parsers.py) drives xbrl.XBRLParser.parse / parseGAAP / GAAPSerializer. The original capuanob root harness fuzz/xbrl_parse_fuzz.py is preserved as mayhem/xbrl_parse_fuzz.py. The behavioral oracle (mayhem/xbrl_oracle) is likewise an ELF launcher so the anti-reward-hack sabotage check can neuter it. marshmallow is pinned <4 because xbrl.GAAPSerializer uses fields.Number, which marshmallow 4 made an abstract class (uninstantiable) so import xbrl would otherwise fail."
+}
